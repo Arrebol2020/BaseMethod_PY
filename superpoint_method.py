@@ -218,6 +218,8 @@ class SuperPointFrontend(object):
       desc /= np.linalg.norm(desc, axis=0)[np.newaxis, :]
     return pts, desc, heatmap
 
+
+# https://github.com/magicleap/SuperPointPretrainedNetwork
 if __name__ == "__main__":
   img_path = r"E:\datasets\bop_datasets\ycbv\crop_test\20\img\000048_000019.png"
 

@@ -875,6 +875,7 @@ def compute_kpts_desc(im_path, keynet_model, desc_model, conf, device, num_point
     return src_kp, src_dsc
 
 
+# https://github.com/axelBarroso/Key.Net-Pytorch
 if __name__ == "__main__":
 
     num_kpts = 5000
