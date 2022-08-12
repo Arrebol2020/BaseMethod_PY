@@ -878,7 +878,7 @@ def compute_kpts_desc(im_path, keynet_model, desc_model, conf, device, num_point
 if __name__ == "__main__":
 
     num_kpts = 5000
-    img_path = r"E:\datasets\bop_datasets\test\9\img\000049_000001.png"
+    img_path = r"E:\datasets\bop_datasets\ycbv\crop_test\15\img\000054_000094.png"
 
     use_cuda = torch.cuda.is_available()
     device = torch.device('cuda:0' if use_cuda else 'cpu')
@@ -886,9 +886,11 @@ if __name__ == "__main__":
     # Read Key.Net model and extraction configuration
     conf = keynet_config['KeyNet_default_config']
     keynet_model, desc_model = initialize_networks(conf)
-
-    xys, desc = compute_kpts_desc(img_path, keynet_model, desc_model, conf, device, num_points=5000)
+    
     img = cv2.imread(img_path)
+    
+    xys, desc = compute_kpts_desc(img_path, keynet_model, desc_model, conf, device, num_points=num_kpts)
+
     kps = []
     for x, y, scale, score in xys:
       print(x, y, scale, score)
