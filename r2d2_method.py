@@ -297,8 +297,8 @@ def extract_multiscale( net, img, detector, scale_f=2**0.25,
 
 
 # https://github.com/naver/r2d2#feature-extraction-with-kapture-datasets
-if __name__ == "__main__":
-  img_path = r"E:\datasets\bop_datasets\ycbv\crop_test\20\img\000048_000019.png"
+def r2d2_m(img_path):
+  #img_path = r"E:\datasets\bop_datasets\ycbv\crop_test\15\img\000050_000001.png"
 
   reliability_thr = 0.7
   repeatability_thr = 0.7
@@ -339,12 +339,12 @@ if __name__ == "__main__":
   img = cv2.imread(img_path)
   kps = []
   for x, y, scale in xys:
-    print(x, y, scale)
+    #print(x, y, scale)
     kp = cv2.KeyPoint(x, y, 0)
     kps.append(kp)
   img_keypoints = np.empty((img.shape[0], img.shape[1], 3), dtype=np.uint8)
   cv2.drawKeypoints(img, kps, img_keypoints)
   #cv2.imwrite("keynet.png", img_keypoints)
-  cv2.imshow("keynet", img_keypoints)
+  cv2.imshow("r2d2", img_keypoints)
   cv2.waitKey(0)
   print()

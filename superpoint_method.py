@@ -220,8 +220,8 @@ class SuperPointFrontend(object):
 
 
 # https://github.com/magicleap/SuperPointPretrainedNetwork
-if __name__ == "__main__":
-  img_path = r"E:\datasets\bop_datasets\ycbv\crop_test\20\img\000048_000019.png"
+def superpoint_m(img_path):
+  #img_path = r"E:\datasets\bop_datasets\ycbv\crop_test\15\img\000050_000001.png"
 
   DO_CUDA = True
   nms_dist = 4  # Non Maximum Suppression (NMS) distance (default: 4).
@@ -247,7 +247,7 @@ if __name__ == "__main__":
 
   kps = []
   for x, y in pts:
-    print(x, y)
+    #print(x, y)
     kp = cv2.KeyPoint(x, y, 0)
     kps.append(kp)
   img_keypoints = np.empty((img.shape[0], img.shape[1], 3), dtype=np.uint8)

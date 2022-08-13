@@ -424,7 +424,7 @@ def process_multiscale(image, model, scales=[.5, 1, 2]):
 
 
 # https://github.com/mihaidusmanu/d2-net#feature-extraction-with-kapture-datasets
-if __name__ == "__main__":
+def d2net_m(img_path):
   # CUDA
   use_cuda = torch.cuda.is_available()
   device = torch.device("cuda:0" if use_cuda else "cpu")
@@ -433,7 +433,7 @@ if __name__ == "__main__":
   max_sum_edges = 2800
   preprocessing = "caffe"
   multiscale = True
-  img_path = r"E:\datasets\bop_datasets\ycbv\crop_test\20\img\000048_000019.png"
+  #img_path = r"E:\datasets\bop_datasets\ycbv\crop_test\15\img\000050_000001.png"
 
   # Creating CNN model
   model = D2Net(
@@ -491,12 +491,12 @@ if __name__ == "__main__":
   img = cv2.imread(img_path)
   kps = []
   for x, y, scale in keypoints:
-    print(x, y, scale)
+    #print(x, y, scale)
     kp = cv2.KeyPoint(x, y, 0)
     kps.append(kp)
   img_keypoints = np.empty((img.shape[0], img.shape[1], 3), dtype=np.uint8)
   cv2.drawKeypoints(img, kps, img_keypoints)
   #cv2.imwrite("keynet.png", img_keypoints)
-  cv2.imshow("keynet", img_keypoints)
+  cv2.imshow("d2net", img_keypoints)
   cv2.waitKey(0)
   print()

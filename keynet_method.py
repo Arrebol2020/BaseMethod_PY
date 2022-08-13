@@ -876,10 +876,10 @@ def compute_kpts_desc(im_path, keynet_model, desc_model, conf, device, num_point
 
 
 # https://github.com/axelBarroso/Key.Net-Pytorch
-if __name__ == "__main__":
+def keynet_m(img_path):
 
     num_kpts = 5000
-    img_path = r"E:\datasets\bop_datasets\ycbv\crop_test\15\img\000054_000094.png"
+    #img_path = r"E:\datasets\bop_datasets\ycbv\crop_test\15\img\000050_000001.png"
 
     use_cuda = torch.cuda.is_available()
     device = torch.device('cuda:0' if use_cuda else 'cpu')
@@ -894,7 +894,7 @@ if __name__ == "__main__":
 
     kps = []
     for x, y, scale, score in xys:
-      print(x, y, scale, score)
+      #print(x, y, scale, score)
       kp = cv2.KeyPoint(x, y, 0)
       kps.append(kp)
     img_keypoints = np.empty((img.shape[0], img.shape[1], 3), dtype=np.uint8)

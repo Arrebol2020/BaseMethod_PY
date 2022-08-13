@@ -7,7 +7,7 @@ import glob
 from tqdm import tqdm
 from collections import defaultdict
 from pathlib import Path
-from config import config
+from config_bop import config
 
 
 def infer_imgs(dataset, root, detection_root, model_path):
